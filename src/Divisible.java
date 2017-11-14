@@ -1,19 +1,31 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 class Divisible {
+    public static int[] convertIntegers(List<Integer> integers)
+    {
+        int[] ret = new int[integers.size()];
+        for (int i=0; i < ret.length; i++)
+        {
+            ret[i] = integers.get(i).intValue();
+        }
+        return ret;
+    }
     public int[] divisible(int[] array, int divisor) {//arry 사용
         //ret에 array에 포함된 정수중, divisor로 나누어 떨어지는 숫자를 순서대로 넣으세요.
+        List<Integer> mList=new ArrayList<Integer>();
         int num=0;
         int j=0;
         for(int i=0;i<array.length;i++)
-        if(array[i]%divisor ==0)
-            num++;
-        int[] ret = new int[num];
-        for(int i=0;i<array.length;i++)
-        {
             if(array[i]%divisor ==0)
-                ret[j++]=array[i];
-        }
+                mList.add(array[i]);
+        int[] ret = convertIntegers(mList);
+//        for(int i=0;i<array.length;i++)
+//        {
+//            if(array[i]%divisor ==0)
+//                ret[j++]=array[i];
+//        }
 
         return ret;
     }
